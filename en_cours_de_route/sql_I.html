@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Procédure stockée:</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <style>
+    body,html,.container{min-width:100vw;padding:0;margin:0;font-size:1rem;}
+    header{width:100vw;border-bottom:3px solid #e83e8c;}li{width:calc(100% / 3.5);}
+    ul,li{list-style:none;}li{display:inline-block;margin-top:2rem;}
+    a{color:#e83e8c; font-size:2rem;transition:all .5s;}
+    a:hover{color:#8719a2;text-decoration:none;}h1{margin-top:10px;margin-bottom: 30px;margin-left:50px;text-decoration:underline;max-width: max-content;width: 100vw;}h1:first-letter{color:#e83e8c;}.wrapper{  background:#333;width:80vw;height:auto;padding:25px;margin:25px;border-radius:12.5px;}
+    h3{color:#e83e8c;}.purple{color:#e940fd;font-weight:600;}.white{color:#fff2f2;font-weight:400;}
+    code{background:#333;border-radius:25px;}.cyan{color:cyan}
+  </style>
+</head>
+
+<body>
+ 	<header class="bg-dark">
+    	<ul>
+	      	<li>
+	      		<a href="sql_II.html">Transaction</a>
+	      	</li>
+    	</ul>
+  	</header>
+
+  	<section class="m-3">
+  		<h3>SQL Avancée | Procédure stockée</h3>
+		<div class="wrap row">
+			<p class="col-6">Les procédures stockée permet d'enregistrée une commande sql par le biais d'une fonction, fonction possible car phpMyAdmin reste une interface faite de php. Ces procédures executée sont enregirstrées dans le systems pour les voir ils suffit de faire <span class="purple">SHOW PROCEDURE STATUS</span><br>L'avantage de la procédure est qu'elle est réeutilisable plus tard avec <span class="purple">CALL</span> suivit du nom de la fonction(Prenant un arguments). Plusieurs paramètre peuvent être entrez dans la fonction, toutefois à l'appel de la procédure, cela demanderas autant d'argument que de paramètres choisie initialement.<br>La requète préparée peu reçevoir autre chose qu'un <span class="purple">SELECT</span>, elle peu reçevoir toutes les commandes courrantes pour la gestions d'une base de donnée, de table de cette dernières ou de données.</p>
+
+			<code class="p-3 offset-1 col-5">
+<span class="purple">DELIMITER</span>	|<br>
+<span class="purple">CREATE PROCEDURE</span> liste_quelconque(In title <span class="cyan">Varchar</span>(100))<br>
+<span class="purple">BEGIN</span><br>
+<span class="pl-5 purple">SELECT</span> pro_id,pro_title,pro_price FROM produits<br>
+<span class="pl-5 purple">WHERE</span> pro_title = title;<br>
+<span class="purple">END</span>	|<br>
+<span class="purple">DELIMITER</span>	;<br>
+
+<span class="purple">CALL</span> liste_quelconque(<span class="white">'FF-4000'</span>);<br>
+			</code>	
+		</div>	
+  	</section>
+
+
+</body>
+</html>

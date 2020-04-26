@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>SQL Avancée | Transaction</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <style>
+    body,html,.container{min-width:100vw;padding:0;margin:0;font-size:1rem;overflow-x:hidden;}
+    header{width:100vw;border-bottom:3px solid #e83e8c;}li{width:calc(100% / 3.5);}
+    ul,li{list-style:none;}li{display:inline-block;margin-top:2rem;}
+    a{color:#e83e8c; font-size:2rem;transition:all .5s;}
+    a:hover{color:#8719a2;text-decoration:none;}h1{margin-top:10px;margin-bottom: 30px;margin-left:50px;text-decoration:underline;max-width: max-content;width: 100vw;}h1:first-letter{color:#e83e8c;}.wrapper{  background:#333;width:80vw;height:auto;padding:25px;margin:25px;border-radius:12.5px;}
+    h3{color:#e83e8c;}.purple{color:#e940fd;font-weight:600;}.white{color:#fff2f2;font-weight:400;}
+    code{background:#333;border-radius:25px;}.cyan{color:cyan}.imp{color:#ff4545;font-weight:700;}
+    .strong{font-weight:700;color:brown;}
+    .b-pink,.pink{background:#e83e8c;}.yw{color:#eaea78;}.ml-7 {margin-left:5rem;}.ml-9{margin-left:6rem;}
+  </style>
+
+</head>
+
+<body>
+ 	<header class="bg-dark">
+    	<ul>
+	      	<li>
+	      		<a href="sql_I.html">Procédure stockée</a>
+            <a href="sql_III.html">Trigger</a>
+	      	</li>
+    	</ul>
+  	</header>
+
+  	<section>
+      <div class="row">
+        <h3 class="mt-4 offset-1 col-2">Transaction&nbsp;:&nbsp;</h3>
+      </div>
+
+		<div class="wrap row">
+			<p class="offset-1 col-5">La transaction est un cycle en SQL conçue pour vérifiée l'ensemble des données lors d'une mise à jour.<br>Ce cycle est composée quatre partie: La partie <span class="strong">Atomique</span>, elle annule l'ensembles des requètes exercée dans le cycle en cas d'erreur ou information érronée, elle assure également la validitée des données avant l'update(à la fin du cycle). Enfin le cycle Atomique à un dernier rôle crucial, celui d'effacer toutes données en cas d'echec de <span class="strong">Transaction</span>.<br><br>
+
+      La partie <span class="strong">Cohérence</span>: Cette partie analyse l'ensembles des requètes, données et variable associer aux données ServerSide afin de décelée d'éventuelles incohérences, par exemple si les bind-params associer à une données en php ne corresponde pas à l'attente d'un tupple en raison de son type (l'exemple le plus c..), ce cycle annuleras la <span class="strong">Transaction</span>, en supposant que le SQL n'indique déjà pas d'erreurs. Ce cycle prend également les contraintes exposée par la base de données en elle même ou les opérations SQL employée lors de la <span class="strong">Transaction</span>.<br><br>
+      La partie <span class="strong">Isolation</span> : Elle assure que la transaction soit isolée de d'autre <span class="strong">Transaction</span> déja existante ou en attente.<br><br>
+
+      La partie Durabilitée: Possède un Rôle en commun avec le cycle <span class="strong">Atomique</span>
+      , celui de devoir enregistrée les données, cependant contrairement à <span class="strong">Atomique</span>, <span class="strong">Durabilitée</span> enregistre les données après la transaction et s'assure que ces dernières sont belles et bien arrivée à destination, un cas d'erreur pouvant montrée ceci serais d'updaté les données sur un tupple détruit au même moment que la transaction s'effectue(en parallèle n'oublions pas l'isolation), eh donc ce tupple deviendrais inexistant après la <span class="strong">Transaction</span>, sa semble idiot mais ce cas peu se traduit tout simplement avec une deconnexion.</p>
+
+			<code class="p-3 offset-1 col-4">
+<span class="purple">START TRANSACTION</span>;<br>
+  <span class="purple ml-3">SELECT</span> pro_price <span class="purple">FROM</span> produits<br>
+      <span class="purple ml-5">WHERE</span> pro_slug = "<span class="yw">bat000</span>";<br>
+    <span class="purple ml-3">UPDATE</span> produits <span class="purple">SET</span> pro_price = "<span class="yw">50.00</span>"<br>
+      <span class="purple ml-5">WHERE</span> pro_slug = "<span class="yw">bat00</span>";<br>
+<span class="purple">COMMIT</span>;<br>
+
+<hr class="b-pink">
+
+<span class="purple">START TRANSACTION</span>;<br>
+<span class="ml-3 purple">CALL</span> NomDeFonction1(<span class="yw">"type",param1","donnée"</span>);<br>
+<span class="ml-3 purple">CALL</span> NomDeFonction2(<span class="yw">"donnée","param"</span>);<br>
+<span class="purple">SAVEPOINT</span> appel_procedure;<br>
+<span class="ml-3 purple">SELECT</span> * <span class="purple"> FROM</span> produits <br>
+<span class="ml-5 purple">WHERE</span> pro_ref = <span class="yw">"gui000"</span>;<br>
+<span class="purple">ROLLBACK TO SAVEPOINT</span> appel_procedure;<br>
+<span class="purple">COMMIT</span>;<br>
+
+<hr class="b-pink">
+
+
+
+			</code>
+		</div>	
+    <div class="row mt-5">
+      <p class="offset-1 col-10">
+        <span class="strong">Atomique</span>, <span class="strong">Cohérance</span>, <span class="strong">Isolation</span> et <span class="strong">Durabilitée</span> ou plutôt l'acronyme<span class="strong"> A.C.I.D</span> constitue le cycle de la <span class="strong">transaction</span> chaque partie est dépendante l'une des autres, si l'une partie detecte une problème l'ensemble de la transaction s'arrête'. <br>
+        Autre InnoDB est le seul moteur pouvant faire tournée les transacttions. <br>
+        Il faut savoir aussi que <span class="purple">COMMIT</span> est automatiquement placée en état <span class="purple">AUTOCOMMIT</span> sous <span class="strong">MySQL</span>, il ne sert donc à rien de le précisée sous wamp, de même pour l'état <span class="purple">SERIALIZE</span>.
+      </p>
+    </div>
+    <div class="row mt-3">
+      <p class="offset-1 col-10">
+        Voila pour la partie théorique, elle n'est peut être pas explicite lors de la pratique mais il est important de comprendre le fonctionnement de ce cycle aux moins pour comprendre ces éventuelles erreurs.
+      </p>
+    </div>
+
+    <div class="row mt-5">
+      <p class="offset-1 col-10">
+        La transaction peut être gérer aussi avec PHP
+      </p>
+    </div>
+    
+    <div class="wrap row">
+        <code class="p-3 offset-1 col-10">
+          <p>
+
+<br><br>
+<span class="white"><span class="imp">if</span>(<span class="cyan">isset</span>($_POST[<span class="yw">'pro_price'</span>]) <span class="imp">&& !</span><span class="cyan">empty</span>($_POST[<span class="yw">'pro_price'</span>])) {<br><br>
+
+  <span class="ml-3">$erreur <span class="imp">=</span> <span class="yw">''</span>;</span><br><br>
+
+    <span class="ml-3">$input <span class="imp">=</span> <span class="cyan">trim</span>($_POST[<span class="yw">'pro_price'</span>]);</span><br>
+
+    <span class="imp ml-3">if</span>(<span class="cyan">empty</span>($input)) {<br>
+        <span class="ml-5">$erreur <span class="imp">=</span> <span class="yw">"Veuillez entrée un prix"</span>;</span><br>
+
+    <span class="ml-3">} <span class="imp">else</span> {</span><br>
+        <span class="ml-5">$pro_price <span class="imp">=</span> $input;</span><br>
+    <span class="ml-3">}</span><br>
+
+    <span class="imp ml-3">if</span>(<span class="cyan">empty</span>($erreur)) {<br>
+      <span class="imp ml-5">require_once</span>(<span class="yw">'database.php'</span>);<br><br>
+      
+      <span class="ml-5">$db-><span class="cyan">beginTransaction</span>();<br></span>
+    
+      <span class="ml-5">$query <span class="imp">=</span> <span class="yw">"<span class="imp">UPDATE</span> produits <span class="imp">SET</span> pro_price<span class="imp">=</span>:pro_price <span class="imp">WHERE</span> pro_id<span class="imp">=</span>:pro_id"</span>;</span><br>
+
+      <span class="imp ml-5">if</span>($stm = $db-><span class="cyan">prepare</span>($query)) {<br><br>
+
+            <span class="ml-7">$stm-><span class="cyan">bindParam</span>(<span class="yw">":pro_price"</span>, $param_price, <span class="cyan">PDO</span>::<span class="purple">PARAM_FLOAT</span>);</span><br>
+
+            <span class="ml-7">$stm-><span class="cyan">bindParam</span>(<span class="yw">":pro_id"</span>, $param_id, <span class="cyan">PDO</span>::<span class="purple">PARAM_INT</span>);</span><br><br>
+
+            <span class="ml-7">$param_price <span class="imp">=</span> $pro_price;</span><br>
+            <span class="ml-7">$param_id <span class="imp">=</span> $pro_id;</span><br><br>
+
+
+            <span class="imp ml-7">if</span>($stm-><span class="cyan">execute</span>()) {<br>
+              <span class="ml-9">$db-><span class="cyan">commit</span>();</span><br>
+              <span class="ml-9"><span class="cyan">header</span>(<span class="yw">'location: autre.php'</span>);</span><br>
+              <span class="cyan ml-9">exit</span>();<br>
+            <span class="ml-7">} <span class="imp">else</span> {</span><br>
+
+                <span class="ml-9">$db-><span class="cyan">rollBack</span>();</span><br>
+                <span class="ml-9">$erreur = <span class="yw">"Une erreur est survenue"</span>;</span><br>
+            <span class="ml-7">}</span><br>
+
+    <span class="ml-5">}<br></span>
+    <span class="cyan ml-5">unset</span>($stm);<br>
+    <span class="ml-3">}</span><br>
+    <span class="cyan ml-3">unset</span>($db);<br>
+}
+        </p>
+        </code>
+      </div>
+  	</section>
+
+
+</body>
+</html>
