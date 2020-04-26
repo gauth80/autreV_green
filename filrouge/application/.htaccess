@@ -1,0 +1,5 @@
+
+RewriteEngine On
+2 RewriteCond %{ REQUEST_FILENAME } ! - f
+3 RewriteCond %{ REQUEST_FILENAME } ! - d
+4 RewriteRule ^(.*) $ index . php / $1 [ L ]
