@@ -1,7 +1,7 @@
 
 <!--TODO config->form_validation | js->infobulle() css->res pointbreak lg(992) && xs(-578)-->
 <div class="row bk-form-ins col-12 m-0 px-0 py-2">
-    <?= form_open('structure/inscription', ["class" => "col-sm-12 col-lg-4 mt-2"]); ?>
+    <?= form_open('path/inscription', ["class" => "col-sm-12 col-lg-4 mt-2"]); ?>
 
         <div class="form-group row <?= empty(form_error('name')) ? '' : 'has-error';?>">
             <label for="nom" class="offset-sm-1 offset-lg-4 col-sm-9">Votre nom&nbsp;:&nbsp;*</label>
@@ -39,9 +39,9 @@
             <span class="text-warning offset-sm-1"><?= form_error('cell');?></span>
         </div>
 
-        <div class="form-group row <?= empty(form_error('mail')) ? '' : 'has-error';?>">
+        <div class="form-group row <?= empty(form_error('email')) ? '' : 'has-error';?>">
             <label for="email" class="offset-1 col-sm-11">Votre email&nbsp;:&nbsp;*</label>
-            <input type="text" name="mail" id="email" class="form-control offset-1 w-75" placeholder="exemple@outlook.com">
+            <input type="text" name="email" id="email" class="form-control offset-1 w-75" placeholder="exemple@outlook.com">
             <span class="text-warning offset-1"><?= form_error('mail');?></span>
         </div>
 

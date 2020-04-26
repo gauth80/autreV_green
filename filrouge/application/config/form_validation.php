@@ -5,6 +5,7 @@ $config = array(
 	'path/inscription' => array(
 		array(
 			'field' => 'name',
+			'label' => 'nom',
 			'rules' => array(
 				'required',
 				'min_length[3]',
@@ -12,6 +13,7 @@ $config = array(
 		),
 		array(
 			'field' => 'username',
+			'label' => 'prénom',
 			'rules' => array(
 				'required',
 				'min_length[3]',
@@ -19,19 +21,22 @@ $config = array(
 		),
 		array(
 			'field' => 'city',
+			'label' => 'ville',
 			'rules' => array(
 				'min_length[3]',
 				'max_length[15]',
 				'required')
 		),
 		array(
-			'field' => 'mail',
+			'field' => 'email',
+			'label' => 'email',
 			'rules' => array(
 				'valid_email',
 				'required')
 		),
 		array(
 			'field' => 'password',
+			'label' => 'mot de passe',
 			'rules' => array(
 				'min_length[3]',
 				'max_length[15]',
@@ -39,6 +44,7 @@ $config = array(
 		),
 		array(
 			'field' => 'comfirm_password',
+			'label' => 'comfirmation mot de passe',
 			'rules' => array(
 				'min_length[3]',
 				'max_length[15]',
