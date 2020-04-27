@@ -22,4 +22,5 @@ class Path extends CI_Controller {
       $this->templates->display('pages/inscription');
   	}
   }
+
 }
