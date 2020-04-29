@@ -1,4 +1,4 @@
-
+<!--TODO trouver une police pour les prix-->
 <div class="row">
 	<div class="col-11 offset-1">
 		<p>Vas devoir passez sous gimp pour les transparences</p>
@@ -9,157 +9,41 @@
 </div>
 <section class="row py-5">
 	<div class="wrap-produits my-5 row">
+
+
+
+		<?php foreach ($data as $pro) { ?>
+		
 		<div class="card my-5 mx-auto">
 			<div class="face revers1">
 				<div class="contenue text-center">
-					<img class="img-fluid" src="<?php echo base_url('assets/img/produits/Gibson_Lespaul.png'); ?>" alt="Gibson Lespaul">
-					<h3>Gibson Lespaul</h3><!--le libelle-->
+					<img class="img-fluid" 
+
+					src="<?php echo base_url() ;?>assets/img/produits/listes/<?php echo $pro->PRO_LIBELLE;?>.<?php echo $pro->PRO_PHOTO;?>" alt="<?php echo $pro->PRO_LIBELLE ;?>">
+
+					<h3><?php echo $pro->PRO_LIBELLE ;?></h3>
 				</div>
 			</div>
 			<div class="face revers2">
 				<div class="contenue">
-					<p>Produits disponible&nbsp;:&nbsp;3</p><!--le stock-->
-					<p><em>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae, ipsam neque repellat reprehenderit consequuntur adipisci...</em></p><!--la desc avec une limite de 15-->
-					<p><u>ref</u>&nbsp;:&nbsp;gui000</p>
+					<p>Produits disponible&nbsp;:&nbsp;<?php echo $pro->PRO_STOCK_PHYSIQUE ;?></p>
+
+					<p><em><?php echo word_limiter($pro->PRO_DESCRIPTION,15) ;?></em></p>
+
+					<p><u>REF</u>&nbsp;:&nbsp;<?php echo $pro->PRO_REF ;?></p>
 
 					<a href="" class="btn">Lire plus</a>
-					<p class="price">5800 €</p><!--le prix changer {font-familly}-->	
+					<p class="price"><?php echo $pro->PRO_PRIX_ACHAT ;?>&nbsp;€</p>
 				</div>
 			</div>
 		</div>
 
-		<div class="card my-5 mx-auto">
-			<div class="face revers1">
-				<div class="contenue text-center">
-					<img class="img-fluid" src="<?php echo base_url('assets/img/produits/gipson_pat_martino.png'); ?>" alt="Pat Martino">
-					<h3>Gibson Pat Martino</h3><!--le libelle-->
-				</div>
-			</div>
-			<div class="face revers2">
-				<div class="contenue">
-					<p>Produits disponible&nbsp;:&nbsp;3</p><!--le stock-->
-					<p><em>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae, ipsam neque repellat reprehenderit consequuntur adipisci...</em></p><!--la desc avec une limite de 15-->
-					<p><u>ref</u>&nbsp;:&nbsp;gui003</p>
+	<?php } ;?>
 
-					<a href="" class="btn">Lire plus</a>
-					<p class="price">4999.99 €</p><!--le prix changer {font-familly}-->	
-				</div>
-			</div>
-		</div>
 
-		<div class="card my-5 mx-auto">
-			<div class="face revers1">
-				<div class="contenue">
-					<img class="img-fluid" src="<?php echo base_url('assets/img/produits/Gibson_Lespaul.png'); ?>" alt="Gibson Lespaul">
-					<h3>Marque déposite</h3><!--le libelle-->
-				</div>
-			</div>
-			<div class="face revers2">
-				<div class="contenue">
-					<p>Produits disponible&nbsp;:&nbsp;3</p><!--le stock-->
-					<p><em>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae, ipsam neque repellat reprehenderit consequuntur adipisci...</em></p><!--la desc avec une limite de 15-->
-					<p><u>ref</u>&nbsp;:&nbsp;gui000</p>
 
-					<a href="" class="btn">Lire plus</a>
-					<p class="price">360 €</p><!--le prix changer {font-familly}-->	
-				</div>
-			</div>
-		</div>
 
-		<div class="card my-5 mx-auto">
-			<div class="face revers1">
-				<div class="contenue">
-					<img class="img-fluid" src="<?php echo base_url('assets/img/produits/Gibson_Lespaul.png'); ?>" alt="Gibson Lespaul">
-					<h3>Marque déposite</h3><!--le libelle-->
-				</div>
-			</div>
-			<div class="face revers2">
-				<div class="contenue">
-					<p>Produits disponible&nbsp;:&nbsp;3</p><!--le stock-->
-					<p><em>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae, ipsam neque repellat reprehenderit consequuntur adipisci...</em></p><!--la desc avec une limite de 15-->
-					<p><u>ref</u>&nbsp;:&nbsp;gui000</p>
 
-					<a href="" class="btn">Lire plus</a>
-					<p class="price">360 €</p><!--le prix changer {font-familly}-->	
-				</div>
-			</div>
-		</div>
-
-		<div class="card my-5 mx-auto">
-			<div class="face revers1">
-				<div class="contenue">
-					<img class="img-fluid" src="<?php echo base_url('assets/img/produits/Gibson_Lespaul.png'); ?>" alt="Gibson Lespaul">
-					<h3>Marque déposite</h3><!--le libelle-->
-				</div>
-			</div>
-			<div class="face revers2">
-				<div class="contenue">
-					<p>Produits disponible&nbsp;:&nbsp;3</p><!--le stock-->
-					<p><em>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae, ipsam neque repellat reprehenderit consequuntur adipisci...</em></p><!--la desc avec une limite de 15-->
-					<p><u>ref</u>&nbsp;:&nbsp;gui000</p>
-
-					<a href="" class="btn">Lire plus</a>
-					<p class="price">360 €</p><!--le prix changer {font-familly}-->	
-				</div>
-			</div>
-		</div>
-
-		<div class="card my-5 mx-auto">
-			<div class="face revers1">
-				<div class="contenue">
-					<img class="img-fluid" src="<?php echo base_url('assets/img/produits/Gibson_Lespaul.png'); ?>" alt="Gibson Lespaul">
-					<h3>Marque déposite</h3><!--le libelle-->
-				</div>
-			</div>
-			<div class="face revers2">
-				<div class="contenue">
-					<p>Produits disponible&nbsp;:&nbsp;3</p><!--le stock-->
-					<p><em>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae, ipsam neque repellat reprehenderit consequuntur adipisci...</em></p><!--la desc avec une limite de 15-->
-					<p><u>ref</u>&nbsp;:&nbsp;gui000</p>
-
-					<a href="" class="btn">Lire plus</a>
-					<p class="price">360 €</p><!--le prix changer {font-familly}-->	
-				</div>
-			</div>
-		</div>
-
-		<div class="card my-5 mx-auto">
-			<div class="face revers1">
-				<div class="contenue">
-					<img class="img-fluid" src="<?php echo base_url('assets/img/produits/Gibson_Lespaul.png'); ?>" alt="Gibson Lespaul">
-					<h3>Marque déposite</h3><!--le libelle-->
-				</div>
-			</div>
-			<div class="face revers2">
-				<div class="contenue">
-					<p>Produits disponible&nbsp;:&nbsp;3</p><!--le stock-->
-					<p><em>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae, ipsam neque repellat reprehenderit consequuntur adipisci...</em></p><!--la desc avec une limite de 15-->
-					<p><u>ref</u>&nbsp;:&nbsp;gui000</p>
-
-					<a href="" class="btn">Lire plus</a>
-					<p class="price">360 €</p><!--le prix changer {font-familly}-->	
-				</div>
-			</div>
-		</div>
-
-		<div class="card my-5 mx-auto">
-			<div class="face revers1">
-				<div class="contenue">
-					<img class="img-fluid" src="<?php echo base_url('assets/img/produits/Gibson_Lespaul.png'); ?>" alt="Gibson Lespaul">
-					<h3>Marque déposite</h3><!--le libelle-->
-				</div>
-			</div>
-			<div class="face revers2">
-				<div class="contenue">
-					<p>Produits disponible&nbsp;:&nbsp;3</p><!--le stock-->
-					<p><em>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae, ipsam neque repellat reprehenderit consequuntur adipisci...</em></p><!--la desc avec une limite de 15-->
-					<p><u>ref</u>&nbsp;:&nbsp;gui000</p>
-
-					<a href="" class="btn">Lire plus</a>
-					<p class="price">360 €</p><!--le prix changer {font-familly}-->	
-				</div>
-			</div>
-		</div>
 
 		
 	</div>

@@ -15,6 +15,7 @@ $route['translate_uri_dashes'] = FALSE;
 //class/method/argument
 $route['default_controller'] = 'path';
 
+//29/04/2020	$route['produits'] = "produits/index";
 
 //$route['produits']['GET'] ='produits/aff';
 
