@@ -1,16 +1,12 @@
 <!--TODO trouver une police pour les prix-->
 <div class="row">
 	<div class="col-11 offset-1">
-		<p>Vas devoir passez sous gimp pour les transparences</p>
 		<p>Point mobile a faire</p>
 		<p>peut être mettre une sidebar sur le coté gauche</p>
-		<p>et devras mettre une delimitation du texte avec php</p>
 	</div>
 </div>
 <section class="row py-5">
 	<div class="wrap-produits my-5 row">
-
-
 
 		<?php foreach ($data as $pro) { ?>
 		
@@ -39,6 +35,7 @@
 		</div>
 
 	<?php } ;?>
+
 
 
 

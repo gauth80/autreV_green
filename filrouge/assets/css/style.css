@@ -7,11 +7,12 @@
 
 */
 /*=0*/
+@import url('https://fonts.googleapis.com/css2?family=Chewy&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Cardo&display=swap');
 @import url('pages/form.css');
 @import url('pages/layouts.css');
 @import url('pages/accueil.css');
 @import url('pages/produits.css');
-
 
 .fontAwesome {
 	font-family: Helvetica, 'FontAwesome', sans-serif;}

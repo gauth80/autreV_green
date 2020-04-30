@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css">
     <!--hors connexion-->
     <link rel="stylesheet" href="<?php echo base_url("assets/css/")."bootstrap.min.css";?>">
+    <link rel="icon" type="image/png" href="<?php echo base_url("assets/img/favicon-min.png");?>" />
     <link rel="stylesheet" href="<?php echo base_url("assets/css/")."style.css" ;?>">
     <title>v green</title>
 

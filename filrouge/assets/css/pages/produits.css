@@ -70,7 +70,8 @@
 	right:15px;
 	top:75%;
 	font-size:1.5rem;
-	font-weight:900;
+	font-weight:400;
+	font-family: 'Chewy', cursive;
 	color:orangered;}
 
 .wrap-produits .card .face.revers1 .contenue h3  {
@@ -100,6 +101,7 @@
 .wrap-produits .card .face.revers2 .contenue p {
 	margin:0;
 	padding:0;
+	font-family:'Cardo',serif;
 }
 .wrap-produits .card .face.revers2 .contenue a {
 	margin:15px 0 0;
