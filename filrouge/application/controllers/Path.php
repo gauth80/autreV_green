@@ -9,18 +9,13 @@ class Path extends CI_Controller {
     $this->templates->display('pages/accueil');
   }
 
-  public function inscription() {
-  	$this->load->helper("form")
-  			       ->library("form_validation");
-
-  	if($this->form_validation->run()) {
-
-
-
-  		$this->index();
-  	} else {
-      $this->templates->display('pages/inscription');
-  	}
+  /*
+  * Il est possible de passez des fonctions en guise d'argument
+  */
+  public function assistance() { 
+    $this->templates->display('pages/assistance');
+     function service() {$this->templates->display('pages/assistance');}
+     function aide() {$this->templates->display('pages/assistance');}
+     function propos() {$this->templates->display('pages/assistance');}
   }
-
 }

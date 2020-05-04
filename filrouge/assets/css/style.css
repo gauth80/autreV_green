@@ -13,6 +13,7 @@
 @import url('pages/layouts.css');
 @import url('pages/accueil.css');
 @import url('pages/produits.css');
+@import url('pages/assistance.css');
 
 .fontAwesome {
 	font-family: Helvetica, 'FontAwesome', sans-serif;}

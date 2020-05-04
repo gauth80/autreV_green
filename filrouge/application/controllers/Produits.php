@@ -9,10 +9,10 @@ class Produits extends CI_Controller {
 	}
 
 	public function index() {
-		//sub
+		//sub - option
 		$produits = new Produits_model;
 
-		$data['data']= $produits->get_produits();
+		$data['data']= $this->produits_model->get_produits();
 
     $this->templates->display('produits/index', $data);
   }

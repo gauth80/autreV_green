@@ -11,7 +11,6 @@
     <link rel="icon" type="image/png" href="<?php echo base_url("assets/img/favicon-min.png");?>" />
     <link rel="stylesheet" href="<?php echo base_url("assets/css/")."style.css" ;?>">
     <title>v green</title>
-
 </head>
 
 <body class="container root" style="background:url('<?php echo base_url('assets/img/accueil/background_village.png');?>')">
@@ -36,7 +35,7 @@
                                 <div class="collapse navbar-collapse pl-0" id="target1">
                                     <ul class="navbar-nav ml-auto pt-3 mr-2">
                                         <li class="nav-item col-3 nav-link active pl-4">
-                                            <a class="" href="" title="Information du site">infos</a>
+                                            <?= anchor('path/assistance/#info', "Infos") ;?>
                                         </li>
                                    
                                         <div class="dropdown nav-link active col-5">
@@ -61,7 +60,7 @@
                                                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim </p>
 
 
-                                                    <?= anchor('path/inscription', "S'inscrire", ["class" => "btn btn-success", "name" => "inscription"]) ;?>
+                                                    <?= anchor('contact/inscription', "S'inscrire", ["class" => "btn btn-success", "name" => "inscription"]) ;?>
                                                     
                                                     <label class="text-center" for="inscription">
                                                         <a href="/" title="plus d'information sur les modalitées d'inscription">Plus d'information</a>
@@ -95,11 +94,18 @@
                                         <ul class="navbar-nav ml-auto pl-0 pr-0">
                                             <li class="nav-item active col-xs-3"><a class="nav-link pl-4" href="<?php echo site_url("admin/adminAccueil");?>">Administration</a></li>
 
-                                            <li class="nav-item active col-xs-3"><a class="nav-link pl-4" href="<?php echo site_url("produits/index");?>">Produits</a></li>
+                                            <li class="nav-item active col-xs-3">
+                                                <?= anchor('produits/index', "Produits", ["class" => "nav-link pl-4"]);?>
+                                            </li>
 
-                                            <li class="nav-item active col-xs-3"><a class="nav-link pl-4" href="">Service</a></li>
-                                            <li class="nav-item active col-xs-3"><a class="nav-link pl-4" href="">Aide</a></li>
-                                            <li class="nav-item active col-xs-3"><a class="nav-link pl-4" href="<?=site_url('path/info');?>">A propos</a>
+                                            <li class="nav-item active col-xs-3">
+                                                <?= anchor('path/assistance/service/#service', "Service", ["class" => "nav-link pl-4"]);?>
+                                            </li>
+                                            <li class="nav-item active col-xs-3">
+                                                <?= anchor('path/assistance/aide/#aide', "Aide", ["class" => "nav-link pl-4"]);?>
+                                            </li>
+                                            <li class="nav-item active col-xs-3">
+                                                <?= anchor('path/assistance/propos/#propos', "As propos", ["class" => "nav-link pl-4"]);?>
                                             </li>
                                         </ul>
                                     </div>

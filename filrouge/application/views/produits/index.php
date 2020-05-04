@@ -1,4 +1,4 @@
-<!--TODO trouver une police pour les prix-->
+
 <div class="row">
 	<div class="col-11 offset-1">
 		<p>Point mobile a faire</p>
