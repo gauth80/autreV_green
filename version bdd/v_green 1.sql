@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  lun. 04 mai 2020 à 11:52
+-- Généré le :  jeu. 30 avr. 2020 à 21:36
 -- Version du serveur :  5.7.26
 -- Version de PHP :  7.2.18
 
@@ -54,28 +54,13 @@ DELIMITER ;
 DROP TABLE IF EXISTS `categorie`;
 CREATE TABLE IF NOT EXISTS `categorie` (
   `CAT_ID` int(11) NOT NULL AUTO_INCREMENT,
-  `CAT_LIBELLE` varchar(50) NOT NULL,
+  `CAT_LIBELLE` varchar(50) DEFAULT NULL,
   `Cat_cat_id` int(11) NOT NULL,
   `PER_ID` int(11) NOT NULL,
   PRIMARY KEY (`CAT_ID`),
   KEY `FK_cat_cat_id` (`Cat_cat_id`),
   KEY `FK_per_id` (`PER_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
-
---
--- Déchargement des données de la table `categorie`
---
-
-INSERT INTO `categorie` (`CAT_ID`, `CAT_LIBELLE`, `Cat_cat_id`, `PER_ID`) VALUES
-(1, 'guitare', 1, 1),
-(2, 'batterie', 2, 2),
-(3, 'piano', 3, 3),
-(4, 'studio', 4, 4),
-(5, 'eclairage', 5, 5),
-(6, 'dj', 6, 6),
-(7, 'cases', 7, 7),
-(8, 'accessoires', 8, 8),
-(9, 'instrument a vent', 9, 9);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 

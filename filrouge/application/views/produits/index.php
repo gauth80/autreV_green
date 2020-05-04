@@ -1,8 +1,8 @@
 
-<div class="row">
+<div class="row my-0 py-0">
 	<div class="col-11 offset-1">
-		<p>Point mobile a faire</p>
-		<p>peut être mettre une sidebar sur le coté gauche</p>
+		<p>Point mobile a faire <br>
+		peut être mettre une sidebar sur le coté gauche si réalisable en AJAX</p>
 	</div>
 </div>
 <section class="row py-5">
