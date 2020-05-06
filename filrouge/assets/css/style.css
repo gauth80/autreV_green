@@ -14,6 +14,7 @@
 @import url('pages/accueil.css');
 @import url('pages/produits.css');
 @import url('pages/assistance.css');
+@import url('pages/administration.css');
 
 .fontAwesome {
 	font-family: Helvetica, 'FontAwesome', sans-serif;}

@@ -1,7 +1,7 @@
 
 <!--TODO config->form_validation | js->infobulle() css->res pointbreak lg(992) && xs(-578)-->
 <div class="row bk-form-ins col-12 m-0 px-0 py-2">
-    <?= form_open('path/inscription', ["class" => "col-sm-12 col-lg-4 mt-2"]); ?>
+    <?= form_open('contact/inscription', ["class" => "col-sm-12 col-lg-4 mt-2"]); ?>
 
         <div class="form-group row <?= empty(form_error('name')) ? '' : 'has-error';?>">
             <label for="nom" class="offset-sm-1 offset-lg-4 col-sm-9">Votre nom&nbsp;:&nbsp;*</label>

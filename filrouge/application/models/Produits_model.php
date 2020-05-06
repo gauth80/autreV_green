@@ -19,30 +19,26 @@ class Produits_model extends CI_Model {
 	}
 	
 	/*data => input*/
-	public function insert_produits() {
-		//peut etre rajouter 'data' => $this->input->post('pro_lib') selon la view
+	public function insert_produits($pro_img, $slug) {
+
 		$data = array(
-			'PRO_LIBELLE' => 'pro_lib',
-			'PRO_REF' => 'pro_ref',
-			'PRO_DESCRIPTION' => 'pro_desc',
-			'PRO_PRIX_ACHAT' => 'pro_prix',
-			'PRO_PHOTO' => 'pro_img',
-			'PRO_STOCK_PHYSIQUE' => 'pro_stock',
-			'CAT_LIBELLE' => 'cat_lib'
+			'PRO_LIBELLE' => $this->input->post('pro_lib'),
+			'PRO_REF' => $this->input->post('pro_ref'),
+			'PRO_DESCRIPTION' => $this->input->post('pro_desc'),
+			'PRO_PRIX_ACHAT' => $this->input->post('pro_prix'),
+			'PRO_STOCK_PHYSIQUE' => $this->input->post('pro_stock'),
+			'PRO_SLUG' => $slug,
+			'PRO_PHOTO' => $pro_img
+
 		);
-		//même chose qu'insert, sauf requete moins longue
-		$query = $this->db->set($data)->get_compiled_insert('produits');
+
+		return $this->db->set($data)->insert('produits');
 	}
 
 	public function update_produits() {
 		$data = $this->insert_produits();
 		$this->db->set($data)
 			 	 ->insert('produits');
-
-
 	}
-
-
-
 	
 }

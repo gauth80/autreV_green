@@ -92,7 +92,7 @@
                                     </button>
                                     <div class="collapse navbar-collapse pl-0" id="target2">
                                         <ul class="navbar-nav ml-auto pl-0 pr-0">
-                                            <li class="nav-item active col-xs-3"><a class="nav-link pl-4" href="<?php echo site_url("admin/adminAccueil");?>">Administration</a></li>
+                                            <li class="nav-item active col-xs-3"><a class="nav-link pl-4" href="<?php echo site_url("administration/index");?>">Administration</a></li>
 
                                             <li class="nav-item active col-xs-3">
                                                 <?= anchor('produits/index', "Produits", ["class" => "nav-link pl-4"]);?>

@@ -2,7 +2,7 @@
 defined('BASEPATH') or exit('No direct script access allowed');
 
 $config = array(
-	'path/inscription' => array(
+	'contact/inscription' => array(
 		array(
 			'field' => 'name',
 			'label' => 'nom',
@@ -49,7 +49,19 @@ $config = array(
 				'min_length[3]',
 				'max_length[15]',
 				'required',
-				'matches[password]')
-		
-		
-		)));
+				'matches[password]'))
+	));
+
+	 $config = array(
+	'produits/create_produits' => array(
+		array(
+			'field' => 'pro_lib',
+			'label' => 'libelle',
+			'rules' => array(
+				'required',
+				'min_length[3]',
+				'max_length[15]')
+		)
+	));
+
+
