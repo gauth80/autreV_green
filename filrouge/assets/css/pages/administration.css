@@ -39,6 +39,22 @@
     height:100vh;
     overflow-y:auto;}
 
+.tab-pane .tabs-desc {
+    box-shadow:0 0 3px #333;
+}
+.tab-pane .tabs-desc .row {
+ box-shadow: 0px 2px 6px #ccc;}
+
+.tab-pane .tabs-desc .p-3 img {
+    padding: 0;
+    border-radius: 8px;}
+
+.tab-pane .tabs-info p,u {
+    color:whitesmoke;
+    text-underline-position:under;
+    font-weight: 900;
+    font-size: .9rem;}
+
 .nav-tabs.fade{
     opacity:0; 
     transition:opacity .3s;}

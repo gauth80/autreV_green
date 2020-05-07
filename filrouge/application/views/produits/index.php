@@ -30,6 +30,7 @@
 
 					<a href="" class="btn">Lire plus</a>
 					<p class="price"><?php echo $pro->PRO_PRIX_ACHAT ;?>&nbsp;€</p>
+                    <input type="hidden" name="pro_id" value="<?php echo $pro->PRO_ID;?>">
 				</div>
 			</div>
 		</div>
