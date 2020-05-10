@@ -8,11 +8,19 @@ class Produits_model extends CI_Model {
 		$this->load->database();
 	}
 
-	public function get_produits() {
+	public function get_produits_for_client() {
 		$this->db->order_by('produits.PRO_ID', 'DESC')
 			     ->join('categorie', 'categorie.CAT_ID = produits.CAT_ID')
 			     //aff produits sinon diff de 0
 				 ->having('PRO_STOCK_PHYSIQUE != 0');
+						  
+		$query = $this->db->get('produits');
+		return $query->result();
+	}
+
+	public function get_produits_for_personnal() {
+		$this->db->order_by('produits.PRO_ID', 'ASC')
+			     ->join('categorie', 'categorie.CAT_ID = produits.CAT_ID');
 						  
 		$query = $this->db->get('produits');
 		return $query->result();

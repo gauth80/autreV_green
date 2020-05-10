@@ -12,7 +12,7 @@ class Administration extends CI_Controller {
 	}
 	
 	public function index() {
-		$data['data']= $this->produits_model->get_produits();
+		$data['data'] = $this->produits_model->get_produits_for_personnal();
 		$this->templates->display('administration/index', $data);
 	}
 }

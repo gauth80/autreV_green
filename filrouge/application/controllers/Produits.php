@@ -1,13 +1,20 @@
 <?php
 /*
 *   TODO
-*   <imp> La secu de chaque formulaires (desactiver à la création)
+*   <imp> La secu de chaque formulaires (desactiver au build)
 *   <imp> Appliquée/refaire la catégorie
+*   <imp> delete aussi l'image lors d'un delete produits, egalement lors d'un update
 *   <imp> Un seconds input proposants les produits non indexée du site (ceux avec un stock de zero)
 *   <imp> & <op> Responsive a faire
 *   <op> Faire un helper upload image et le charger dans les deux methodes
 *   <op> Appliquez la transition des tables en Jquery ou Js
-*   <op> Image de substitue en cas d'echec d'upload 
+*   <op> Image de substitue en cas d'echec d'upload
+
+
+    Note test unitaire
+
+*   <imp> l'update ne change que les champs concernée, soit use un require cotée form_validation soit créer 
+    une conditions
 
 
 */
@@ -27,12 +34,9 @@ class Produits extends CI_Controller {
 	public function index() {
 		//sub - option - ne sert pas dans ce context
 		$produits = new Produits_model;
-
-		$data['data']= $this->produits_model->get_produits();
-
-	
-    $this->templates->display('produits/index', $data);
-  }
+		$data['data']= $this->produits_model->get_produits_for_client();
+        $this->templates->display('produits/index', $data);
+    }
 
 	public function create_produits() {
 

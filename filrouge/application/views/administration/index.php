@@ -7,6 +7,7 @@
         </ul>
         
         <div class="tab-content">
+
             <div class="tab-pane active" id="homeProduits">
 
                 <div class="row">
@@ -69,17 +70,7 @@
                         <span class="text-warning offset-sm-1"><?= form_error('pro_desc');?></span>
                     </div>
 
-                    <!--test unit a faire-->
-                    <!--<div class="form-group row">
-                        <label for="cat" class="offset-sm-1">Mettre une catégories</label>
-                        <select name="cat_id" id="cat" class="form-control w-75 offset-sm-1">
-                            <?php //foreach($categories as $cat){?>
-                            <option value=""></option>
-                            <?php //};?>
-                        </select>
-                    </div>-->
 
-                        <!-- mettre img-->
      
                     <div class="form-group row <?= empty(form_error('err_img')) ? '' : 'has-error';?>">
                         <label for="stock" class="offset-sm-1">Inserez une image&nbsp;:&nbsp;*</label>
@@ -89,7 +80,8 @@
 
                 <?= form_submit("create_pro", "Envoyez", ["class" => "btn btn-custom my-2 mx-2"], ["type" => "submit"]);?>
                 <?= form_close(); ?>
-            </div>
+            </div> 
+
             
             <div class="tab-pane fade" id="updateProduits">
                 <h3>Mis à jour du produits</h3>
@@ -135,18 +127,6 @@
                         <textarea name="pro_desc" id="desc" class="form-control w-75 offset-sm-1" min-size="0" max-size="500" placeholder="Il étais une fois.."></textarea>
                         <span class="text-warning offset-sm-1"><?= form_error('pro_desc');?></span>
                     </div>
-
-                    <!--test unit a faire-->
-                    <!--<div class="form-group row">
-                        <label for="cat" class="offset-sm-1">Mettre une catégories</label>
-                        <select name="cat_id" id="cat" class="form-control w-75 offset-sm-1">
-                            <?php //foreach($categories as $cat){?>
-                            <option value=""></option>
-                            <?php //};?>
-                        </select>
-                    </div>-->
-
-                        <!-- mettre img-->
      
                     <div class="form-group row <?= empty(form_error('err_img')) ? '' : 'has-error';?>">
                         <label for="stock" class="offset-sm-1">Modifiez l'image&nbsp;:&nbsp;*</label>
@@ -179,6 +159,7 @@
                 <?= form_submit("delete_pro", "supprimer", ["class" => "btn btn-custom my-2 mx-2"], ["type" => "submit"]);?>
                 <?= form_close(); ?>
             </div>
+
         </div>
     </div>
 
