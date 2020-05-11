@@ -19,8 +19,7 @@ class Produits_model extends CI_Model {
 	}
 
 	public function get_produits_for_personnal() {
-		$this->db->order_by('produits.PRO_ID', 'ASC')
-			     ->join('categorie', 'categorie.CAT_ID = produits.CAT_ID');
+		$this->db->order_by('produits.PRO_ID', 'ASC');
 						  
 		$query = $this->db->get('produits');
 		return $query->result();
@@ -34,6 +33,7 @@ class Produits_model extends CI_Model {
 			'PRO_DESCRIPTION' => $this->input->post('pro_desc'),
 			'PRO_PRIX_ACHAT' => $this->input->post('pro_prix'),
 			'PRO_STOCK_PHYSIQUE' => $this->input->post('pro_stock'),
+			'CAT_ID' => $this->input->post('cat_exist'),
 			'PRO_SLUG' => $slug,
 			'PRO_PHOTO' => $pro_img
 
@@ -50,11 +50,12 @@ class Produits_model extends CI_Model {
 			'PRO_DESCRIPTION' => $this->input->post('pro_desc'),
 			'PRO_PRIX_ACHAT' => $this->input->post('pro_prix'),
 			'PRO_STOCK_PHYSIQUE' => $this->input->post('pro_stock'),
+			'CAT_ID' => $this->input->post('cat_exist'),
 			'PRO_SLUG' => $slug,
 			'PRO_PHOTO' => $pro_img
 
             );
-        //todo Survient alors un second problème comment update un produits qui reste en bdd avec 0 en stock
+
             $this->db->where('PRO_ID', $this->input->post('pro_exist'));
             return $this->db->update('produits', $data);
 	}
@@ -63,6 +64,14 @@ class Produits_model extends CI_Model {
         $this->db->where('PRO_ID', $this->input->post('pro_exist'));
         $this->db->delete('produits');
         return true;
+	}
+
+	public function get_categories_data() {
+		$this->db->select('*')
+				 ->order_by('CAT_ID', 'ASC');
+
+		$query = $this->db->get('categorie');
+		return $query->result();
 	}
 	
 }

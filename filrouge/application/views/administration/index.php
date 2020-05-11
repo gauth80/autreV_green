@@ -38,6 +38,16 @@
                 <h3>Ajout de produits</h3>
                 <?= form_open_multipart('produits/create_produits', ["class" => "col-sm-12 col-lg-9 mt-2"]); ?>
 
+                    <div class="form-group row">
+
+                        <label for="catExist" class="offset-sm-1">Choisir une catégorie *</label>
+                        <select name="cat_exist" id="catExist" class="form-control w-75 offset-sm-1">
+                            <?php foreach($cat_exist as $cat){?>
+                            <option value="<?php echo $cat->CAT_ID;?>"><?php echo $cat->CAT_LIBELLE;?></option>
+                            <?php };?>
+                        </select>
+                    </div>
+
                     <div class="form-group row <?= empty(form_error('pro_lib')) ? '' : 'has-error';?>">
                         <label for="libelle" class="offset-sm-1">Le libelle&nbsp;:&nbsp;*</label>
                         <input type="text" name="pro_lib" id="libelle" class="form-control w-75 offset-sm-1" placeholder="Gipson">
@@ -92,6 +102,15 @@
                         <select name="pro_exist" id="proExist" class="form-control w-75 offset-sm-1">
                             <?php foreach($data as $pro){?>
                             <option value="<?php echo $pro->PRO_ID ;?>"><?php echo $pro->PRO_LIBELLE;?></option>
+                            <?php };?>
+                        </select>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="catExist" class="offset-sm-1">Choisir une catégorie *</label>
+                        <select name="cat_exist" id="catExist" class="form-control w-75 offset-sm-1">
+                            <?php foreach($cat_exist as $cat){?>
+                            <option value="<?php echo $cat->CAT_ID;?>"><?php echo $cat->CAT_LIBELLE;?></option>
                             <?php };?>
                         </select>
                     </div>

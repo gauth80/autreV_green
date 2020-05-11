@@ -34,12 +34,11 @@ class Produits extends CI_Controller {
 	public function index() {
 		//sub - option - ne sert pas dans ce context
 		$produits = new Produits_model;
-		$data['data']= $this->produits_model->get_produits_for_client();
+		$data['data'] = $this->produits_model->get_produits_for_client();
         $this->templates->display('produits/index', $data);
     }
 
 	public function create_produits() {
-
 
 		if($this->input->post('create_pro')) {
 			
