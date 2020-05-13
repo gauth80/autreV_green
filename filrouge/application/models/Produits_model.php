@@ -19,7 +19,7 @@ class Produits_model extends CI_Model {
 	}
 
 	public function get_produits_for_personnal() {
-		$this->db->order_by('produits.PRO_ID', 'ASC');
+		$this->db->order_by('produits.PRO_ID', 'DESC'); //mettre en asc
 						  
 		$query = $this->db->get('produits');
 		return $query->result();
@@ -61,10 +61,21 @@ class Produits_model extends CI_Model {
 	}
 
 	public function delete_produits($id) {
-        $this->db->where('PRO_ID', $this->input->post('pro_exist'));
+		$this->db->select('PRO_SLUG', $slug)
+        	 ->where('PRO_ID', $this->input->post('pro_exist'));
         $this->db->delete('produits');
         return true;
 	}
+
+	/*public function delete_img($slug) {
+
+		$slug = $this->db->select('*')
+		             ->where('PRO_SLUG');
+		$query = $this->db->from('produits');
+		return $query;
+
+
+	}*/
 
 	public function get_categories_data() {
 		$this->db->select('*')

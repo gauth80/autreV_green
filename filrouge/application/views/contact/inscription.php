@@ -2,10 +2,10 @@
 <!--TODO config->form_validation | js->infobulle() css->res pointbreak lg(992) && xs(-578)-->
 <div class="row bk-form-ins col-12 m-0 px-0 py-2">
     <?= form_open('contact/inscription', ["class" => "col-sm-12 col-lg-4 mt-2"]); ?>
-
+    <?php validation_errors(); ?>
         <div class="form-group row <?= empty(form_error('name')) ? '' : 'has-error';?>">
             <label for="nom" class="offset-sm-1 offset-lg-4 col-sm-9">Votre nom&nbsp;:&nbsp;*</label>
-            <input type="text" name="name" id="nom" class="form-control w-75 offset-sm-1 offset-lg-4" placeholder="dupont">
+            <input type="text" name="name" id="nom" class="form-control w-75 offset-sm-1 offset-lg-4" placeholder="dupont"value="<?php echo set_value('name'); ?>">
             <span class="text-warning offset-sm-1 offset-lg-4"><?= form_error('name');?></span>
         </div>
 
@@ -20,6 +20,7 @@
             <input type="text" name="city" id="ville" class="form-control w-75 offset-1" placeholder="Amiens">
             <span class="text-warning offset-1"><?= form_error('city');?></span>
         </div>
+
 
         <div class="form-group row <?= empty(form_error('street')) ? '' : 'has-error';?>">
             <label for="adresse" class="offset-sm-1 col-sm-9">Votre adresse&nbsp;:&nbsp;*</label>
@@ -39,10 +40,12 @@
             <span class="text-warning offset-sm-1"><?= form_error('cell');?></span>
         </div>
 
+
+
         <div class="form-group row <?= empty(form_error('email')) ? '' : 'has-error';?>">
             <label for="email" class="offset-1 col-sm-11">Votre email&nbsp;:&nbsp;*</label>
             <input type="text" name="email" id="email" class="form-control offset-1 w-75" placeholder="exemple@outlook.com">
-            <span class="text-warning offset-1"><?= form_error('mail');?></span>
+            <span class="text-warning offset-1"><?= form_error('email');?></span>
         </div>
 
         <div class="form-group row <?= empty(form_error('password')) ? '' : 'has-error';?>">

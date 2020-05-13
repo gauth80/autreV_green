@@ -1,9 +1,9 @@
     <div class="col-10 offset-1 my-3 main-produits">
         <ul class="nav nav-tabs" id="Administration-produits">
-            <li class="active"><a href="#homeProduits">Home</a></li>
-            <li><a href="#insertProduits">Insertion</a></li>
-            <li><a href="#updateProduits">Mise a jour</a></li>
-            <li><a href="#deleteProduits">supprimer</a></li>
+            <li class="active"><a href="#homeProduits">Liste</a></li>
+            <li class="active"><a href="#insertProduits">Insertion</a></li>
+            <li class="active"><a href="#updateProduits">Mise a jour</a></li>
+            <li class="active"><a href="#deleteProduits">supprimer</a></li>
         </ul>
         
         <div class="tab-content">
@@ -37,7 +37,7 @@
             <div class="tab-pane fade " id="insertProduits">
                 <h3>Ajout de produits</h3>
                 <?= form_open_multipart('produits/create_produits', ["class" => "col-sm-12 col-lg-9 mt-2"]); ?>
-
+                <?php validation_errors();?>
                     <div class="form-group row">
 
                         <label for="catExist" class="offset-sm-1">Choisir une catégorie *</label>
@@ -64,7 +64,7 @@
 
                     <div class="form-group row <?= empty(form_error('pro_prix')) ? '' : 'has-error';?>">
                         <label for="prix" class="offset-sm-1">Définir un prix&nbsp;:&nbsp;*</label>
-                        <input name="pro_prix" id="prix" class="form-control w-75 offset-sm-1" placeholder="99.99" min-size="0" max-size="99999.99">
+                        <input name="pro_prix" id="prix" class="form-control w-75 offset-sm-1" placeholder="99.99">
                         <span class="text-warning offset-sm-1"><?= form_error('pro_prix');?></span>
                     </div>
 
@@ -75,7 +75,7 @@
                     </div>
 
                     <div class="form-group row <?= empty(form_error('pro_desc')) ? '' : 'has-error';?>">
-                        <label for="desc" class="offset-sm-1">Indiquez une inscription&nbsp;:&nbsp;*</label>
+                        <label for="desc" class="offset-sm-1">Indiquez une description&nbsp;:&nbsp;*</label>
                         <textarea name="pro_desc" id="desc" class="form-control w-75 offset-sm-1" min-size="0" max-size="500" placeholder="Il étais une fois.."></textarea>
                         <span class="text-warning offset-sm-1"><?= form_error('pro_desc');?></span>
                     </div>
@@ -96,7 +96,7 @@
             <div class="tab-pane fade" id="updateProduits">
                 <h3>Mis à jour du produits</h3>
                 <?= form_open_multipart('produits/modifiez_produits', ["class" => "col-sm-12 col-lg-9 mt-2"]); ?>
-
+                <?php validation_errors();?>
                     <div class="form-group row">
                         <label for="proExist" class="offset-sm-1">Choisir un produits existant *</label>
                         <select name="pro_exist" id="proExist" class="form-control w-75 offset-sm-1">
@@ -122,7 +122,7 @@
                     </div>
 
                     <div class="form-group row <?= empty(form_error('pro_ref')) ? '' : 'has-error';?>">
-                        <label for="ref" class="offset-sm-1">La ref&nbsp;:&nbsp;*</label>
+                        <label for="ref" class="offset-sm-1">Nouvelle réf&nbsp;:&nbsp;*</label>
                         <input type="text" name="pro_ref" id="ref" class="form-control w-75 offset-sm-1" placeholder="gui000">
                         <span class="text-warning offset-sm-1"><?= form_error('pro_ref');?></span>
                     </div>
@@ -142,7 +142,7 @@
                     </div>
 
                     <div class="form-group row <?= empty(form_error('pro_desc')) ? '' : 'has-error';?>">
-                        <label for="desc" class="offset-sm-1">Indiquez une inscription&nbsp;:&nbsp;*</label>
+                        <label for="desc" class="offset-sm-1">Indiquez une description&nbsp;:&nbsp;*</label>
                         <textarea name="pro_desc" id="desc" class="form-control w-75 offset-sm-1" min-size="0" max-size="500" placeholder="Il étais une fois.."></textarea>
                         <span class="text-warning offset-sm-1"><?= form_error('pro_desc');?></span>
                     </div>
