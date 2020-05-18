@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <title>repl.it</title>
+    <style>
+      h3 {
+        text-decoration:underline;
+      }
+      figcaption {
+        color:white;
+        border-radius: 4px;
+        letter-spacing:2px;
+      }
+    </style>
+  </head>
+
+  <body class="container">
+    <section class="row my-3">
+      <p class="col-10 offset-1"><cite>codé avec <a href="https://repl.it/"class="nav-brand active" target="_blank">repl.it</a></cite></p>
+      <p class="col-10 offset-1">Je n'ai pas accèes aux commandes admin de ce pc, impossible donc d'installer de quoi continuée l'architecture, je fais allusion a un serveur, cela dit, pouvais vous me donnée un avie sur cela ? (ce n'est pas tout les jours que je demande un avie).</p>
+    </section>
+
+    <h3 class="offset-1">rx nom & prenom</h3>
+    <section class="row my-3 col-12">
+      <article class="row col-12">
+        <p class="col-10 offset-1">lettre minuscule et maj toléré, espace toléré, occurrence minimum de 3 et maximum de 15.</p>
+      </article>
+      <figure class="row">
+        <img class="col-10 offset-1" src="img/rx_name.png">
+        <figcaption class="p-2 bg-dark my-2 offset-1">^[a-zA-Z\s]{3,15}$</figcaption>
+      </figure>
+    </section>
+
+    <h3 class="offset-1">rx telephone</h3>
+    <section class="row my-3 col-12">
+      <article class="row col-12">
+        <p class="col-10 offset-1">numero français et us.</p>
+      </article>
+      <figure class="row">
+        <img class="col-10 offset-1" src="img/rx_mobile.png">
+        <figcaption class="p-2 bg-dark my-2 offset-1">^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$</figcaption>
+      </figure>
+    </section>
+
+    <h3 class="offset-1">rx slugify</h3>
+    <section class="row my-3 col-12">
+      <article class="row col-12">
+        <p class="col-10 offset-1">n'autorise pas les double tirrets</p>
+      </article>
+      <figure class="row">
+        <img class="col-10 offset-1" src="img/rx_slugify.png">
+        <figcaption class="p-2 bg-dark my-2 offset-1">^[a-zA-Z0-9]+(?:-[a-zA-Z0-9]+)*$</figcaption>
+      </figure>
+    </section>
+
+      <h3 class="offset-1">rx email</h3>
+    <section class="row my-3 col-12">
+      <article class="row col-12">
+        <p class="col-10 offset-1">occurrences max selon les deux segments min/max (10/26) </p>
+      </article>
+      <figure class="row">
+        <img class="col-10 offset-1" src="img/rx_email.png">
+        <figcaption class="p-2 bg-dark my-2 offset-1">[^@\t\r\n\-\<\#\?][a-zA-Z0-9]{0,9}(?:@[^@\t\r\n\-\<\#\?][a-zA-Z0-9]{0,9})(?:\.[a-zA-Z]{2,5})</figcaption>
+      </figure>
+    </section>
+
+      <h3 class="offset-1">rx adresse & ville</h3>
+    <section class="row my-3 col-12">
+      <article class="row col-12">
+        <p class="col-10 offset-1">occurrences non fixée</p>
+      </article>
+      <figure class="row">
+        <img class="col-10 offset-1" src="img/rx_adress.png">
+        <figcaption class="p-2 bg-dark my-2 offset-1">^[a-zA-Z0-9]+(?:\s[a-zA-Z0-9]+)(?:\s[a-zA-Z0-9]+)*$</figcaption>
+      </figure>
+    </section>
+
+  </body>
+</html>
